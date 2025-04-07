@@ -1,16 +1,21 @@
 import React from "react";
 import Navbar from "./components/Navbar";
-import Menu from './components/Menu';
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import Cart from "./pages/Cart";
+import Home from './pages/Home';
 import About from './pages/About';
-import Contact from './pages/Contact';
+import Menu from './components/Menu';
 
 const App = () => (
-  <div>
-    <Navbar />
-    <About/>
-    <Menu />
-    <Contact />
-  </div>
+<Router>
+  <Navbar />
+  <Routes>
+    <Route path="/" element={<Home />} />
+    <Route path="/cart" element={<Cart />} />
+    <Route path="/about" element={<About/>} />
+    <Route path="/menu" element={<Menu />} />
+  </Routes>
+</Router>
 );
 
 export default App;
